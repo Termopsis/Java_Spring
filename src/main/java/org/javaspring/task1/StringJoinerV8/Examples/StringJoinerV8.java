@@ -1,9 +1,9 @@
-package org.javaspring.task1.StringJoinerV8;
+package org.javaspring.task1.StringJoinerV8.Examples;
 
 import java.util.*;
 import java.util.stream.*;
 
-public class Examples_StringJoinerV8 {
+public class StringJoinerV8 {
     public void example() {
         StringJoiner sj = new StringJoiner(":", "[", "]");
         sj.add("George").add("Sally").add("Fred");
@@ -15,7 +15,7 @@ public class Examples_StringJoinerV8 {
 
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
         String commaSeparatedNumbers = numbers.stream()
-                .map(i -> i.toString())
+                .map(Object::toString)
                 .collect(Collectors.joining(", "));
 
         System.out.println(commaSeparatedNumbers);
