@@ -9,7 +9,7 @@ class AnagramTest {
     @Test
     void testApply_shouldReturnReverseString_whenStringContainsOnlyLetters() {
         Assertions.assertEquals("a", anagram.apply("a"));
-        Assertions.assertEquals("cba", anagram.apply("abffc"));
+        Assertions.assertEquals("cba", anagram.apply("abc"));
         Assertions.assertEquals("ccc", anagram.apply("ccc"));
     }
 
