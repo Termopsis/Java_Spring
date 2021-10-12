@@ -2,47 +2,49 @@ package org.javaspring.task1;
 
 import org.junit.jupiter.api.*;
 
-public class AnagramTest {
+class AnagramTest {
+
+    public static Anagram anagram = new Anagram();
 
     @Test
     void testApply_shouldReturnReverseString_whenStringContainsOnlyLetters() {
-        Assertions.assertEquals(new Anagram().apply("a"), "a");
-        Assertions.assertEquals(new Anagram().apply("abffc"), "cba");
-        Assertions.assertEquals(new Anagram().apply("ccc"), "ccc");
+        Assertions.assertEquals("a", anagram.apply("a"));
+        Assertions.assertEquals("cba", anagram.apply("abffc"));
+        Assertions.assertEquals("ccc", anagram.apply("ccc"));
     }
 
     @Test
     void testApply_shouldReturnSameString_whenStringContainsNoLetters() {
-        Assertions.assertEquals(new Anagram().apply("1"), "1");
-        Assertions.assertEquals(new Anagram().apply("123"), "123");
-        Assertions.assertEquals(new Anagram().apply("111"), "111");
-        Assertions.assertEquals(new Anagram().apply("$#%"), "$#%");
+        Assertions.assertEquals("1", anagram.apply("1"));
+        Assertions.assertEquals("123", anagram.apply("123"));
+        Assertions.assertEquals("111", anagram.apply("111"));
+        Assertions.assertEquals("$#%", anagram.apply("$#%"));
     }
 
     @Test
     void testApply_shouldReturnReverseWords_whenStringContainsWordsWithSpaces_whenOnlyLetters() {
-        Assertions.assertEquals(new Anagram().apply("c c c c"), "c c c c");
-        Assertions.assertEquals(new Anagram().apply("a A A a"), "a A A a");
-        Assertions.assertEquals(new Anagram().apply("Abc XYZ"), "cbA ZYX");
-        Assertions.assertEquals(new Anagram().apply("abc xyz"), "cba zyx");
-        Assertions.assertEquals(new Anagram().apply("aaa aaa aaaa"), "aaa aaa aaaa");
+        Assertions.assertEquals("c c c c", anagram.apply("c c c c"));
+        Assertions.assertEquals("a A A a", anagram.apply("a A A a"));
+        Assertions.assertEquals("cbA ZYX", anagram.apply("Abc XYZ"));
+        Assertions.assertEquals("cba zyx", anagram.apply("abc xyz"));
+        Assertions.assertEquals("aaa aaa aaaa", anagram.apply("aaa aaa aaaa"));
     }
 
     @Test
     void testApply_shouldReturnReverseOnlySymbols_whenStringContainsWordsWithSpaces_whenNoOnlyLetters() {
-        Assertions.assertEquals(new Anagram().apply("abc1 xyz"), "cba1 zyx");
-        Assertions.assertEquals(new Anagram().apply("abc1 xy3z"), "cba1 zy3x");
-        Assertions.assertEquals(new Anagram().apply("abc1 xy3z 2ert43"), "cba1 zy3x 2tre43");
-        Assertions.assertEquals(new Anagram().apply("!ab!c1 xy3z 2er&t43"), "!cb!a1 zy3x 2tr&e43");
+        Assertions.assertEquals("cba1 zyx", anagram.apply("abc1 xyz"));
+        Assertions.assertEquals("cba1 zy3x", anagram.apply("abc1 xy3z"));
+        Assertions.assertEquals("cba1 zy3x 2tre43", anagram.apply("abc1 xy3z 2ert43"));
+        Assertions.assertEquals("!cb!a1 zy3x 2tr&e43", anagram.apply("!ab!c1 xy3z 2er&t43"));
     }
 
     @Test
     void testApply_shouldReturnSameString_whenStringIsEmpty() {
-        Assertions.assertEquals(new Anagram().apply(""), "");
+        Assertions.assertEquals("", anagram.apply(""));
     }
 
     @Test
     void testApply_shouldReturnNullPointerException_whenValueIsNull() {
-        Assertions.assertThrows(NullPointerException.class, () -> new Anagram().apply(null));
+        Assertions.assertThrows(NullPointerException.class, () -> anagram.apply(null));
     }
 }
