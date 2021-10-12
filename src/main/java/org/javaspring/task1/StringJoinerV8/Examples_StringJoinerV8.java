@@ -1,4 +1,4 @@
-package org.javaSpring.task1.StringJoinerV8;
+package org.javaspring.task1.StringJoinerV8;
 
 import java.util.*;
 import java.util.stream.*;

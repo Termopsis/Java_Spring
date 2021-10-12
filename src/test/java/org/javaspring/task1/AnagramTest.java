@@ -1,4 +1,4 @@
-package org.javaSpring.task1;
+package org.javaspring.task1;
 
 import org.junit.jupiter.api.*;
 
@@ -7,7 +7,7 @@ public class AnagramTest {
     @Test
     void testApply_shouldReturnReverseString_whenStringContainsOnlyLetters() {
         Assertions.assertEquals(new Anagram().apply("a"), "a");
-        Assertions.assertEquals(new Anagram().apply("abc"), "cba");
+        Assertions.assertEquals(new Anagram().apply("abffc"), "cba");
         Assertions.assertEquals(new Anagram().apply("ccc"), "ccc");
     }
 

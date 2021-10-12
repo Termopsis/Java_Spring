@@ -1,4 +1,4 @@
-package org.javaSpring.task1;
+package org.javaspring.task1;
 
 import java.util.*;
 import java.util.function.*;
